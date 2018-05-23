@@ -355,8 +355,8 @@ class MySQLSearchBackend(SearchBackend):
                     constraint_name=constraint_name,
                 )
             )
-        # Change the storage engine to MyISAM.
-        cursor.execute("ALTER TABLE watson_searchentry ENGINE = MyISAM")
+
+        cursor.execute("ALTER TABLE watson_searchentry")
         # Add the full text indexes.
         cursor.execute("CREATE FULLTEXT INDEX watson_searchentry_fulltext "
                        "ON watson_searchentry (title, description, content)")
